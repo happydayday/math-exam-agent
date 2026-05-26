@@ -1049,11 +1049,11 @@ img {
   margin: 24px 0;
 }
 
-.footer-mimo {
+.footer-info {
   text-align: center;
 }
 
-.footer-mimo p {
+.footer-info p {
   font-size: 14px;
   font-weight: 600;
   color: var(--accent-blue);

@@ -378,7 +378,7 @@ ARCHITECTURE_DESC = """
 
 ---
 
-*MathExam AI Agent 是小米 MiMo Orbit 百万亿 Token 计划的申请项目。*
+*使用多 Agent 协作和长链推理能力的 AI 数学学习工具。*
 """
 
 # ===========================================================================
@@ -973,7 +973,7 @@ def create_app() -> gr.Blocks:
         MathExam AI Agent
     </h1>
     <p style='font-size: 16px; color: #6c757d; margin: 4px 0 0 0;'>
-        考研数学多 Agent 智能学习系统 | MiMo Orbit 计划
+        考研数学多 Agent 智能学习系统
     </p>
     <div style='margin-top: 8px;'>
         <span style='background: #d4edda; color: #155724; padding: 2px 12px; border-radius: 12px;
@@ -1003,7 +1003,7 @@ def create_app() -> gr.Blocks:
         gr.Markdown(
             """
 <div style='text-align: center; padding: 16px 0; margin-top: 24px; border-top: 1px solid #e9ecef; color: #6c757d; font-size: 13px;'>
-    MathExam AI Agent v1.0.0 · 小米 MiMo Orbit 百万亿 Token 计划申请项目<br>
+    MathExam AI Agent v1.0.0 · 多 Agent 协作智能学习系统<br>
     <a href='https://github.com/happydayday/math-exam-agent' target='_blank' style='color: #667eea; text-decoration: none;'>
         GitHub 仓库
     </a>
