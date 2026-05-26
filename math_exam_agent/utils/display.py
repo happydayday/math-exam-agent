@@ -33,7 +33,7 @@ class DisplayManager:
         console.print(banner)
         console.print(
             Panel(
-                "考研数学多 Agent 智能学习系统 | MiMo Orbit 计划",
+                "考研数学多 Agent 智能学习系统",
                 style="bright_yellow",
                 border_style="yellow",
             )

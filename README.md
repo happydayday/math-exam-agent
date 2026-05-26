@@ -3,7 +3,6 @@
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-blue)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-> **MiMo Orbit 百万亿 Token 计划申请项目**  
 > 展示多 Agent 协作和长链推理能力的 AI 数学学习工具。
 
 ---
@@ -12,7 +11,7 @@
 
 MathExam AI Agent 是一个基于多 Agent 协作架构的考研数学智能学习系统。它通过 **4 个专业化 Agent** 协同工作，为考研学子提供从**能力分析 → 智能出题 → 自动批改 → 学习规划**的一站式学习体验。
 
-本项目是 **小米 MiMo Orbit 百万亿 Token 计划** 的申请证明材料，核心特色：
+核心特色：
 
 - **多 Agent 协作**：4 个 Agent 各司其职，形成完整学习闭环
 - **长链推理可见**：每个 Agent 的思考步骤完整打印到终端，推理过程透明
@@ -197,7 +196,7 @@ math-exam-agent/
  | |  | | (_| | |_| | | | (_) | | | |  |  _| |_| |_| | (_| | (_|  __/
  |_|  |_|\__,_|\__|_| |_|\___/|_| |_|  |_|  \__|\___/ \__,_|\___\___|
 
-                        考研数学多 Agent 智能学习系统 | MiMo Orbit 计划
+                        考研数学多 Agent 智能学习系统
 
 ═══════════════════════════════════════════════════════════════════════════
                         当前模式：MOCK（使用内置演示数据）
@@ -224,22 +223,10 @@ math-exam-agent/
 
 ---
 
-## 关于 MiMo Orbit
-
-MiMo Orbit 是小米公司推出的百万亿 Token 计划，旨在推动大语言模型在长链推理和多 Agent 协作方向的创新应用。
-
-本项目作为申请材料，重点展示了：
-
-1. **长链推理**：每个 Agent 的完整推理步骤可视化
-2. **多 Agent 协作**：4 Agent 分工合作完成复杂学习任务
-3. **可插拔 LLM 架构**：支持从 Mock 到生产级 API 的无缝切换
-
----
-
 ## 在线演示
 
 查看 GitHub Pages 在线展示站点：
 
 [https://happydayday.github.io/math-exam-agent/](https://happydayday.github.io/math-exam-agent/)
 
-站点包含多 Agent 架构展示、功能演示终端模拟、安装使用说明、协作流程图等内容，可作为 MiMo Orbit 计划的在线申请材料。
+站点包含多 Agent 架构展示、功能演示终端模拟、安装使用说明、协作流程图等内容。
