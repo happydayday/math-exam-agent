@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathExam AI Agent - 考研数学多 Agent 智能系统</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-brand">MathExam AI Agent</a>
+      <div class="nav-links">
+        <a href="#architecture">架构</a>
+        <a href="#features">功能</a>
+        <a href="#demo">演示</a>
+        <a href="#usage">使用</a>
+        <a href="#flow">协作流程</a>
+        <a href="https://github.com/happydayday/math-exam-agent" class="nav-github" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="hero">
+    <div class="container hero-container">
+      <div class="hero-badge">MiMo Orbit 百万亿 Token 计划申请项目</div>
+      <h1 class="hero-title">MathExam <span class="gradient-text">AI Agent</span></h1>
+      <p class="hero-subtitle">考研数学多 Agent 智能学习系统</p>
+      <p class="hero-desc">
+        基于多 Agent 协作架构的考研数学智能学习系统。通过 4 个专业化 Agent 协同工作，
+        为考研学子提供从能力分析、智能出题、自动批改到学习规划的一站式学习体验。
+      </p>
+      <div class="hero-badges">
+        <img src="https://img.shields.io/badge/Python-3.11+-blue" alt="Python 3.11+">
+        <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
+        <img src="https://img.shields.io/badge/Architecture-Multi--Agent-orange" alt="Multi-Agent">
+      </div>
+      <div class="hero-actions">
+        <a href="https://github.com/happydayday/math-exam-agent" class="btn btn-primary" target="_blank" rel="noopener">查看源码</a>
+        <a href="#demo" class="btn btn-secondary">在线演示</a>
+      </div>
+    </div>
+    <div class="hero-bg-grid"></div>
+  </header>
+
+  <!-- ========== ARCHITECTURE ========== -->
+  <section class="section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <h2>多 Agent 架构</h2>
+        <p class="section-desc">4 个专业化 Agent 各司其职，形成完整学习闭环</p>
+      </div>
+      <div class="architecture-flow">
+        <!-- User -->
+        <div class="arch-node user-node">
+          <div class="arch-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 20c0-4 4-7 8-7s8 3 8 7"/>
+            </svg>
+          </div>
+          <span>用户</span>
+        </div>
+
+        <div class="arch-connector down"></div>
+
+        <!-- LLM Interface -->
+        <div class="arch-row">
+          <div class="arch-node secondary-node">
+            <div class="arch-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <span>LLM 接口<br><small>Mock / API 双模式</small></span>
+          </div>
+          <div class="arch-node secondary-node">
+            <div class="arch-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M9 12h6"/>
+                <path d="M12 9v6"/>
+              </svg>
+            </div>
+            <span>Memory Manager<br><small>JSON 持久化存储</small></span>
+          </div>
+        </div>
+
+        <div class="arch-connector down"></div>
+
+        <!-- 4 Agents -->
+        <div class="arch-agents">
+          <div class="agent-card" data-agent="analyzer">
+            <div class="agent-card-header">
+              <div class="agent-icon" style="background:#3b82f6;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="agent-name">Analyzer</div>
+                <div class="agent-role">分析 Agent</div>
+              </div>
+            </div>
+            <ul class="agent-tasks">
+              <li>评估各知识点掌握度</li>
+              <li>识别薄弱环节</li>
+              <li>定位错误原因</li>
+            </ul>
+            <div class="agent-chain">步骤 1/5：信息收集 → 知识点覆盖评估 → 难度适应度分析 → 学习模式识别 → 生成分析报告</div>
+          </div>
+
+          <div class="arch-arrow">▶</div>
+
+          <div class="agent-card" data-agent="generator">
+            <div class="agent-card-header">
+              <div class="agent-icon" style="background:#10b981;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2">
+                  <path d="M12 5v14"/>
+                  <path d="M5 12h14"/>
+                </svg>
+              </div>
+              <div>
+                <div class="agent-name">QuestionGen</div>
+                <div class="agent-role">出题 Agent</div>
+              </div>
+            </div>
+            <ul class="agent-tasks">
+              <li>针对薄弱点精准出题</li>
+              <li>生成完整解析步骤</li>
+              <li>难度自适应匹配</li>
+            </ul>
+            <div class="agent-chain">步骤 1/4：知识点定向 → 难度匹配 → 题目生成 → 质量检查</div>
+          </div>
+
+          <div class="arch-arrow">▶</div>
+
+          <div class="agent-card" data-agent="grader">
+            <div class="agent-card-header">
+              <div class="agent-icon" style="background:#f59e0b;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2">
+                  <polyline points="9 11 12 14 22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              </div>
+              <div>
+                <div class="agent-name">Grader</div>
+                <div class="agent-role">批改 Agent</div>
+              </div>
+            </div>
+            <ul class="agent-tasks">
+              <li>自动评分与反馈</li>
+              <li>逐步骤批改解析</li>
+              <li>错误分析与改进建议</li>
+            </ul>
+          </div>
+
+          <div class="arch-arrow">▶</div>
+
+          <div class="agent-card" data-agent="planner">
+            <div class="agent-card-header">
+              <div class="agent-icon" style="background:#8b5cf6;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <div>
+                <div class="agent-name">Planner</div>
+                <div class="agent-role">规划 Agent</div>
+              </div>
+            </div>
+            <ul class="agent-tasks">
+              <li>制定个性化周计划</li>
+              <li>科学时间分配</li>
+              <li>里程碑检查点设置</li>
+            </ul>
+            <div class="agent-chain">步骤 1/4：综合分析 → 优先级排序 → 时间分配 → 生成周计划</div>
+          </div>
+        </div>
+
+        <!-- Feedback loop -->
+        <div class="feedback-loop">
+          <svg viewBox="0 0 200 30" width="200" height="30">
+            <path d="M10 15 L190 15" stroke="#58a6ff" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+            <polygon points="185,10 195,15 185,20" fill="#58a6ff"/>
+            <text x="100" y="12" fill="#58a6ff" font-size="11" text-anchor="middle" font-family="system-ui">反馈循环</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section class="section section-alt" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>功能展示</h2>
+        <p class="section-desc">三个核心命令的终端输出模拟</p>
+      </div>
+
+      <div class="tabs">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="analyze">analyze 分析</button>
+          <button class="tab-btn" data-tab="plan">plan 规划</button>
+          <button class="tab-btn" data-tab="practice">practice 练习</button>
+        </div>
+
+        <!-- Tab: Analyze -->
+        <div class="tab-content active" id="tab-analyze">
+          <div class="terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">analyze --mode mock</div>
+            </div>
+            <div class="terminal-body" id="terminal-analyze">
+              <div class="line"><span class="prompt">$</span> python -m math_exam_agent analyze --mode mock</div>
+              <div class="line output">============================================</div>
+              <div class="line output">MathExam AI Agent - 多Agent协作演示</div>
+              <div class="line output">============================================</div>
+              <div class="line spacer"></div>
+              <div class="line output green"> [统计] 学习情况概览</div>
+              <div class="line output">┌────────────┬──────┐</div>
+              <div class="line output">│ 指标       │ 数值 │</div>
+              <div class="line output">├────────────┼──────┤</div>
+              <div class="line output">│ 总练习次数 │ 1    │</div>
+              <div class="line output">│ 正确次数   │ 0    │</div>
+              <div class="line output">│ 总体掌握度 │ 0.0% │</div>
+              <div class="line output">│ 学习会话数 │ 1    │</div>
+              <div class="line output">└────────────┴──────┘</div>
+              <div class="line spacer"></div>
+              <div class="line output cyan">            [知识点] 各知识点掌握度</div>
+              <div class="line output">  知识点             练习数   正确数   掌握度</div>
+              <div class="line output"> ─────────────────────────────────────────────</div>
+              <div class="line output">  极限与连续              1        0       0%</div>
+              <div class="line output">  导数与微分              0        0       0%</div>
+              <div class="line output">  不定积分与定积分        0        0       0%</div>
+              <div class="line output">  微分中值定理            0        0       0%</div>
+              <div class="line output">  定积分应用              0        0       0%</div>
+              <div class="line spacer"></div>
+              <div class="line output yellow">┌─ [AI] 分析 Agent (Analyzer) 推理过程 ──────────────────────────────────────┐</div>
+              <div class="line output dim">│ 【分析 Agent 推理开始】                                                     │</div>
+              <div class="line output dim">│ 步骤 1/5：信息收集                                                          │</div>
+              <div class="line output dim">│    -> 读取用户学习记录...                                                   │</div>
+              <div class="line output dim">│    -> 提取已完成题目数量、正确率、耗时数据                                  │</div>
+              <div class="line output dim">│    -> 获取各知识点掌握程度                                                  │</div>
+              <div class="line output dim">│ 步骤 2/5：知识点覆盖评估                                                    │</div>
+              <div class="line output dim">│    -> 统计各章节已练习题目数                                                │</div>
+              <div class="line output dim">│    -> 计算各知识点正确率分布                                                │</div>
+              <div class="line output dim">│    -> 识别正确率低于 60% 的薄弱知识点                                       │</div>
+              <div class="line output dim">│ 步骤 3/5：难度适应度分析                                                    │</div>
+              <div class="line output dim">│    -> 评估用户在简单/中等/困难题目上的表现差异                              │</div>
+              <div class="line output dim">│    -> 分析用户在哪些难度层级出现正确率下降                                  │</div>
+              <div class="line output dim">│    -> 确定用户的最近发展区                                                  │</div>
+              <div class="line output dim">│ 步骤 4/5：学习模式识别                                                      │</div>
+              <div class="line output dim">│    -> 分析用户答题速度与正确率的权衡                                        │</div>
+              <div class="line output dim">│    -> 识别粗心错误 vs 概念不清的模式                                        │</div>
+              <div class="line output dim">│    -> 判断用户是否需要对特定题型加强训练                                    │</div>
+              <div class="line output dim">│ 步骤 5/5：生成分析报告                                                      │</div>
+              <div class="line output dim">│    -> 综合以上分析形成结构化报告                                            │</div>
+              <div class="line output dim">│    -> 标注需要优先加强的知识点                                              │</div>
+              <div class="line output dim">│    -> 给出针对性学习建议                                                    │</div>
+              <div class="line output dim">│ 【分析 Agent 推理结束】                                                     │</div>
+              <div class="line output yellow">└─────────────────────────────────────────────────────────────────────────────┘</div>
+              <div class="line spacer"></div>
+              <div class="line output magenta">┌─ [结论] 推理结论 ──────────────────────────────────────────────────────────┐</div>
+              <div class="line output">│ 学习情况分析结论：                                                          │</div>
+              <div class="line output">│ ===========================================                                 │</div>
+              <div class="line output">│ 各知识点掌握度：                                                            │</div>
+              <div class="line output">│   * 极限与连续：75% (良好)                                                  │</div>
+              <div class="line output">│   * 导数与微分：60% (一般) 需加强                                           │</div>
+              <div class="line output">│   * 不定积分与定积分：45% (薄弱) 建议优先复习                               │</div>
+              <div class="line output">│   * 微分中值定理：30% (薄弱) 建议优先复习                                   │</div>
+              <div class="line output">│   * 定积分应用：50% (薄弱) 建议优先复习                                     │</div>
+              <div class="line output">│ ===========================================                                 │</div>
+              <div class="line output green">│ 建议：当前阶段重点攻克「不定积分与定积分」和「微分中值定理」               │</div>
+              <div class="line output magenta">└─────────────────────────────────────────────────────────────────────────────┘</div>
+              <div class="line cursor-line"><span class="cursor">_</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Plan -->
+        <div class="tab-content" id="tab-plan">
+          <div class="terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">plan --mode mock</div>
+            </div>
+            <div class="terminal-body" id="terminal-plan">
+              <div class="line"><span class="prompt">$</span> python -m math_exam_agent plan --mode mock</div>
+              <div class="line output">============================================</div>
+              <div class="line output">MathExam AI Agent - 多Agent协作演示</div>
+              <div class="line output">============================================</div>
+              <div class="line spacer"></div>
+              <div class="line output yellow">┌─ [AI] 规划 Agent (Planner) 推理过程 ───────────────────────────────────────┐</div>
+              <div class="line output dim">│ 【规划 Agent 推理开始】                                                     │</div>
+              <div class="line output dim">│ 步骤 1/4：综合分析 -- 汇总历史表现                                          │</div>
+              <div class="line output dim">│    -> 读取分析 Agent 输出报告                                               │</div>
+              <div class="line output dim">│    -> 提取各知识点掌握度数据                                                │</div>
+              <div class="line output dim">│    -> 评估总复习进度                                                        │</div>
+              <div class="line output dim">│    -> 计算距考试剩余时间                                                    │</div>
+              <div class="line output dim">│ 步骤 2/4：优先级排序 -- 确定薄弱环节                                        │</div>
+              <div class="line output dim">│    -> 按掌握度从低到高排列知识点                                            │</div>
+              <div class="line output dim">│    -> 识别高权重但低掌握的知识点（优先处理）                                │</div>
+              <div class="line output dim">│    -> 平衡复习轮次与深度                                                    │</div>
+              <div class="line output dim">│ 步骤 3/4：时间分配 -- 制定每日计划                                          │</div>
+              <div class="line output dim">│    -> 根据薄弱程度分配学习时间                                              │</div>
+              <div class="line output dim">│    -> 设置短期（日/周）和长期（月）目标                                     │</div>
+              <div class="line output dim">│    -> 安排定期模拟测试                                                      │</div>
+              <div class="line output dim">│    -> 预留复习和调整时间                                                    │</div>
+              <div class="line output dim">│ 步骤 4/4：生成个性化学习计划                                                │</div>
+              <div class="line output dim">│    -> 输出结构化周计划                                                      │</div>
+              <div class="line output dim">│    -> 包含每日学习目标和时长建议                                            │</div>
+              <div class="line output dim">│    -> 设置里程碑检查点                                                      │</div>
+              <div class="line output dim">│ 【规划 Agent 推理结束】                                                     │</div>
+              <div class="line output yellow">└─────────────────────────────────────────────────────────────────────────────┘</div>
+              <div class="line spacer"></div>
+              <div class="line output magenta">┌─ [结论] 推理结论 ──────────────────────────────────────────────────────────┐</div>
+              <div class="line output green">│ 个性化学习计划：                                                            │</div>
+              <div class="line output">│ ===========================================                                 │</div>
+              <div class="line output">│ 【本周学习计划】                                                            │</div>
+              <div class="line output">│                                                                             │</div>
+              <div class="line output cyan">│ [Day 1] 周一：不定积分基础 (2h)</div>
+              <div class="line output dim">│   - 复习基本积分公式 (30min)</div>
+              <div class="line output dim">│   - 练习换元积分法 (45min)</div>
+              <div class="line output dim">│   - 练习分部积分法 (45min)</div>
+              <div class="line output">│                                                                             │</div>
+              <div class="line output cyan">│ [Day 2] 周二：定积分与应用 (2h)</div>
+              <div class="line output dim">│   - 牛顿-莱布尼茨公式复习 (30min)</div>
+              <div class="line output dim">│   - 定积分计算练习 (45min)</div>
+              <div class="line output dim">│   - 定积分求面积/体积 (45min)</div>
+              <div class="line output">│                                                                             │</div>
+              <div class="line output cyan">│ [Day 3] 周三：微分中值定理 (2h)</div>
+              <div class="line output dim">│   - 罗尔定理复习 (30min)</div>
+              <div class="line output dim">│   - 拉格朗日定理复习 (30min)</div>
+              <div class="line output dim">│   - 综合证明题练习 (60min)</div>
+              <div class="line output">│                                                                             │</div>
+              <div class="line output cyan">│ [Day 4] 周四：导数综合 (2h)</div>
+              <div class="line output dim">│   - 复合函数求导 (30min)</div>
+              <div class="line output dim">│   - 隐函数求导 (30min)</div>
+              <div class="line output dim">│   - 高阶导数 (30min)</div>
+              <div class="line output dim">│   - 导数应用 (30min)</div>
+              <div class="line output">│                                                                             │</div>
+              <div class="line output cyan">│ [Day 5] 周五：极限专题 (1.5h)</div>
+              <div class="line output dim">│   - 重要极限复习 (30min)</div>
+              <div class="line output dim">│   - 等价无穷小替换 (30min)</div>
+              <div class="line output dim">│   - 洛必达法则 (30min)</div>
+              <div class="line output">│                                                                             │</div>
+              <div class="line output cyan">│ [Day 6] 周六：综合模拟 (3h)</div>
+              <div class="line output dim">│   - 完整套题练习 (2h)</div>
+              <div class="line output dim">│   - 错题分析整理 (1h)</div>
+              <div class="line output">│                                                                             │</div>
+              <div class="line output cyan">│ [Day 7] 周日：休息与薄弱点补强 (1h)</div>
+              <div class="line output dim">│   - 针对本周错题重新练习</div>
+              <div class="line output">│ ===========================================                                 │</div>
+              <div class="line output magenta">└─────────────────────────────────────────────────────────────────────────────┘</div>
+              <div class="line cursor-line"><span class="cursor">_</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Practice -->
+        <div class="tab-content" id="tab-practice">
+          <div class="terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">practice --mode mock</div>
+            </div>
+            <div class="terminal-body" id="terminal-practice">
+              <div class="line"><span class="prompt">$</span> python -m math_exam_agent practice --mode mock</div>
+              <div class="line output">============================================</div>
+              <div class="line output">MathExam AI Agent - 多Agent协作演示</div>
+              <div class="line output">============================================</div>
+              <div class="line spacer"></div>
+              <div class="line output">信息： 选择知识点：微分中值定理</div>
+              <div class="line spacer"></div>
+              <div class="line output yellow">┌─ [AI] 出题 Agent (Generator) 推理过程 ─────────────────────────────────────┐</div>
+              <div class="line output dim">│ 【出题 Agent 推理开始】                                                     │</div>
+              <div class="line output dim">│ 步骤 1/4：知识点定向                                                        │</div>
+              <div class="line output dim">│    -> 从分析报告筛选出需要练习的主题                                        │</div>
+              <div class="line output dim">│    -> 解析上下文：用户薄弱知识点：微分中值定理                              │</div>
+              <div class="line output dim">│    -> 确认主题层级：高等数学 -> 一元函数微积分 -> 极限与连续                │</div>
+              <div class="line output dim">│ 步骤 2/4：难度匹配                                                          │</div>
+              <div class="line output dim">│    -> 评估用户当前掌握程度                                                  │</div>
+              <div class="line output dim">│    -> 选择略高于当前水平的难度（最近发展区原则）                            │</div>
+              <div class="line output dim">│    -> 确定难度等级：简单                                                    │</div>
+              <div class="line output dim">│ 步骤 3/4：题目生成                                                          │</div>
+              <div class="line output dim">│    -> 从题库中筛选符合知识点的题目                                          │</div>
+              <div class="line output dim">│    -> 验证题目覆盖核心考点                                                  │</div>
+              <div class="line output dim">│    -> 构造解题步骤和评分标准                                                │</div>
+              <div class="line output dim">│    -> 生成完整解析                                                          │</div>
+              <div class="line output dim">│ 步骤 4/4：质量检查                                                          │</div>
+              <div class="line output dim">│    -> 验证题目无歧义                                                        │</div>
+              <div class="line output dim">│    -> 确认答案正确性                                                        │</div>
+              <div class="line output dim">│    -> 检查步骤完整性                                                        │</div>
+              <div class="line output dim">│    -> 格式化输出                                                            │</div>
+              <div class="line output dim">│ 【出题 Agent 推理结束】                                                     │</div>
+              <div class="line output yellow">└─────────────────────────────────────────────────────────────────────────────┘</div>
+              <div class="line spacer"></div>
+              <div class="line output magenta">┌─ [结论] 推理结论 ──────────────────────────────────────────────────────────┐</div>
+              <div class="line output">│ 知识点： 极限与连续                                                         │</div>
+              <div class="line output">│ 难度： 简单                                                                 │</div>
+              <div class="line output green">│ 题目： 求极限：lim_{x->0} sin(3x)/x</div>
+              <div class="line output">│ 答案： 3                                                                     │</div>
+              <div class="line output dim">│ 步骤： 利用重要极限 lim_{u->0} sin u / u = 1，变形后得 3                    │</div>
+              <div class="line output magenta">└─────────────────────────────────────────────────────────────────────────────┘</div>
+              <div class="line spacer"></div>
+              <div class="line output cyan">┌─ [题目] 数学题目 ──────────────────────────────────────────────────────────┐</div>
+              <div class="line output">│ 求极限：                                                                    │</div>
+              <div class="line output green">│ $$\lim_{x \to 0} \frac{\sin 3x}{x}$$</div>
+              <div class="line output cyan">└─────────────────────────────────────────────────────────────────────────────┘</div>
+              <div class="line spacer"></div>
+              <div class="line output yellow">┌─ 解题步骤 ──────────────────────────────────────────────────────────────────┐</div>
+              <div class="line output">│ 步骤1：观察到当 x->0 时，分子 sin 3x -> 0，分母 x -> 0，是 0/0 型未定式。   │</div>
+              <div class="line output">│ 步骤2：利用重要极限：lim_{u->0} sin u / u = 1。                             │</div>
+              <div class="line output">│ 步骤3：将原式变形：lim_{x->0} sin 3x / x = lim_{x->0} 3 * (sin 3x) / (3x)。 │</div>
+              <div class="line output">│ 步骤4：令 u = 3x，当 x->0 时 u->0，                                         │</div>
+              <div class="line output green">│         所以原式 = 3 * lim_{u->0} sin u / u = 3 * 1 = 3。                    │</div>
+              <div class="line output yellow">└─────────────────────────────────────────────────────────────────────────────┘</div>
+              <div class="line cursor-line"><span class="cursor">_</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FULL DEMO ========== -->
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <h2>完整 CLI 运行示例</h2>
+        <p class="section-desc">一键启动完整学习流程的终端输出</p>
+      </div>
+
+      <div class="terminal terminal-full">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="terminal-title">python -m math_exam_agent start --mode mock</div>
+        </div>
+        <div class="terminal-body">
+          <div class="line"><span class="prompt">$</span> python -m math_exam_agent start --mode mock</div>
+          <div class="line spacer"></div>
+          <div class="line output">  __  __       _   _                     __ _    ___</div>
+          <div class="line output"> |  \/  | __ _| |_| |__   ___  _ __     / _| |_ / _ \__ _  ___ ___</div>
+          <div class="line output"> | |\/| |/ _` | __| '_ \ / _ \| '_ \   | |_| __| | | / _` |/ __/ _ \</div>
+          <div class="line output"> | |  | | (_| | |_| | | | (_) | | | |  |  _| |_| |_| | (_| | (_|  __/</div>
+          <div class="line output"> |_|  |_|\__,_|\__|_| |_|\___/|_| |_|  |_|  \__|\___/ \__,_|\___\___|</div>
+          <div class="line spacer"></div>
+          <div class="line output green">                        考研数学多 Agent 智能学习系统 | MiMo Orbit 计划</div>
+          <div class="line spacer"></div>
+          <div class="line output dim">═══════════════════════════════════════════════════════════════════════════</div>
+          <div class="line output yellow">                        当前模式：MOCK（使用内置演示数据）</div>
+          <div class="line output dim">═══════════════════════════════════════════════════════════════════════════</div>
+          <div class="line spacer"></div>
+          <div class="line output cyan">主菜单</div>
+          <div class="line output">┌─────────────────────────────────────────────────────────────┐</div>
+          <div class="line output">│ [1] 分析学习情况                                         │</div>
+          <div class="line output">│ [2] 开始做题练习                                        │</div>
+          <div class="line output">│ [3] 生成学习计划                                          │</div>
+          <div class="line output">│ [4] 完整学习流程 (分析 | 出题 | 批改 | 规划)              │</div>
+          <div class="line output">│ [5] 查看学习统计                                          │</div>
+          <div class="line output">│ [0] 退出                                                  │</div>
+          <div class="line output">└─────────────────────────────────────────────────────────────┘</div>
+          <div class="line spacer"></div>
+          <div class="line output dim">请选择 [0-5]:</div>
+          <div class="line cursor-line"><span class="cursor">_</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== USAGE ========== -->
+  <section class="section section-alt" id="usage">
+    <div class="container">
+      <div class="section-header">
+        <h2>安装使用</h2>
+        <p class="section-desc">快速开始使用 MathExam AI Agent</p>
+      </div>
+
+      <div class="usage-grid">
+        <div class="usage-card">
+          <div class="usage-card-header">
+            <div class="usage-step">1</div>
+            <h3>克隆仓库</h3>
+          </div>
+          <div class="usage-code">
+            <div class="code-line"><span class="code-prompt">$</span> git clone https://github.com/happydayday/math-exam-agent.git</div>
+            <div class="code-line"><span class="code-prompt">$</span> cd math-exam-agent</div>
+          </div>
+        </div>
+
+        <div class="usage-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+
+        <div class="usage-card">
+          <div class="usage-card-header">
+            <div class="usage-step">2</div>
+            <h3>安装依赖</h3>
+          </div>
+          <div class="usage-code">
+            <div class="code-line"><span class="code-prompt">$</span> pip install -r requirements.txt</div>
+          </div>
+        </div>
+
+        <div class="usage-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+
+        <div class="usage-card">
+          <div class="usage-card-header">
+            <div class="usage-step">3</div>
+            <h3>一键启动</h3>
+          </div>
+          <div class="usage-code">
+            <div class="code-line"><span class="code-prompt">$</span> python -m math_exam_agent start --mode mock</div>
+          </div>
+          <p class="usage-note">无需 API Key，开箱即用</p>
+        </div>
+      </div>
+
+      <div class="commands">
+        <h3>常用命令</h3>
+        <div class="commands-grid">
+          <div class="cmd-card">
+            <div class="cmd-name">analyze</div>
+            <div class="cmd-desc">分析学习情况，生成掌握度报告</div>
+            <div class="cmd-syntax">python -m math_exam_agent analyze --mode mock</div>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-name">practice</div>
+            <div class="cmd-desc">智能出题，针对薄弱点练习</div>
+            <div class="cmd-syntax">python -m math_exam_agent practice --mode mock</div>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-name">plan</div>
+            <div class="cmd-desc">个性化周计划生成</div>
+            <div class="cmd-syntax">python -m math_exam_agent plan --mode mock</div>
+          </div>
+          <div class="cmd-card">
+            <div class="cmd-name">start</div>
+            <div class="cmd-desc">启动完整交互式学习会话</div>
+            <div class="cmd-syntax">python -m math_exam_agent start --mode mock</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COOPERATION FLOW ========== -->
+  <section class="section" id="flow">
+    <div class="container">
+      <div class="section-header">
+        <h2>多 Agent 协作流程图</h2>
+        <p class="section-desc">四个 Agent 如何协同完成完整学习闭环</p>
+      </div>
+
+      <div class="flow-diagram">
+        <!-- Row 1: Analyze -->
+        <div class="flow-row">
+          <div class="flow-node" style="--node-color: #3b82f6;">
+            <div class="flow-node-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div class="flow-node-label">Analyzer</div>
+            <div class="flow-node-desc">分析 Agent</div>
+          </div>
+          <div class="flow-arrow">
+            <span>分析结果</span>
+            <svg width="60" height="24" viewBox="0 0 60 24">
+              <line x1="0" y1="12" x2="45" y2="12" stroke="#58a6ff" stroke-width="2"/>
+              <polyline points="40,7 48,12 40,17" fill="none" stroke="#58a6ff" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="flow-node" style="--node-color: #10b981;">
+            <div class="flow-node-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14"/><path d="M5 12h14"/>
+              </svg>
+            </div>
+            <div class="flow-node-label">QuestionGen</div>
+            <div class="flow-node-desc">出题 Agent</div>
+          </div>
+        </div>
+
+        <div class="flow-row-center">
+          <div class="flow-arrow-down">
+            <svg width="24" height="40" viewBox="0 0 24 40">
+              <line x1="12" y1="0" x2="12" y2="30" stroke="#58a6ff" stroke-width="2"/>
+              <polyline points="7,25 12,33 17,25" fill="none" stroke="#58a6ff" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Row 2: Grader -->
+        <div class="flow-row">
+          <div class="flow-node" style="--node-color: #f59e0b;">
+            <div class="flow-node-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 11 12 14 22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+            </div>
+            <div class="flow-node-label">Grader</div>
+            <div class="flow-node-desc">批改 Agent</div>
+          </div>
+          <div class="flow-arrow">
+            <span>批改反馈</span>
+            <svg width="60" height="24" viewBox="0 0 60 24">
+              <line x1="0" y1="12" x2="45" y2="12" stroke="#58a6ff" stroke-width="2"/>
+              <polyline points="40,7 48,12 40,17" fill="none" stroke="#58a6ff" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="flow-node" style="--node-color: #8b5cf6;">
+            <div class="flow-node-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div class="flow-node-label">Planner</div>
+            <div class="flow-node-desc">规划 Agent</div>
+          </div>
+        </div>
+
+        <!-- Feedback loop -->
+        <div class="flow-feedback">
+          <div class="flow-feedback-line">
+            <svg width="100%" height="40">
+              <path d="M 10 20 Q 5 5, 20 5 L 250 5 Q 265 5, 265 20 Q 265 35, 250 35 L 20 35 Q 5 35, 10 20" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+              <polygon points="18,5 10,5 10,12" fill="#f59e0b"/>
+              <text x="130" y="22" fill="#f59e0b" font-size="12" text-anchor="middle" font-family="system-ui">反馈循环：分析结果持续优化后续出题与规划</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Learning loop -->
+        <div class="flow-loop">
+          <div class="loop-item">
+            <div class="loop-icon" style="background:#3b82f6;">1</div>
+            <span>分析</span>
+          </div>
+          <div class="loop-connector"></div>
+          <div class="loop-item">
+            <div class="loop-icon" style="background:#10b981;">2</div>
+            <span>出题</span>
+          </div>
+          <div class="loop-connector"></div>
+          <div class="loop-item">
+            <div class="loop-icon" style="background:#f59e0b;">3</div>
+            <span>答题</span>
+          </div>
+          <div class="loop-connector"></div>
+          <div class="loop-item">
+            <div class="loop-icon" style="background:#8b5cf6;">4</div>
+            <span>规划</span>
+          </div>
+          <div class="loop-feedback-line">
+            <svg width="120" height="30">
+              <path d="M 5 15 L 115 15" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+              <polygon points="110,10 118,15 110,20" fill="#f59e0b"/>
+            </svg>
+            <span class="loop-feedback-text">反馈循环</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TECH STACK ========== -->
+  <section class="section section-alt" id="tech">
+    <div class="container">
+      <div class="section-header">
+        <h2>技术栈</h2>
+        <p class="section-desc">构建本项目使用的核心技术</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <span class="tech-label">语言</span>
+          <span class="tech-value">Python 3.11+</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-label">CLI 框架</span>
+          <span class="tech-value">argparse</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-label">终端美化</span>
+          <span class="tech-value">Rich</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-label">HTTP 客户端</span>
+          <span class="tech-value">HTTPX</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-label">LLM 接口</span>
+          <span class="tech-value">OpenAI 兼容 API</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-label">数据建模</span>
+          <span class="tech-value">Pydantic</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-label">数据持久化</span>
+          <span class="tech-value">JSON 文件存储</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-label">双模式</span>
+          <span class="tech-value">Mock / API 可切换</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <strong>MathExam AI Agent</strong>
+          <p>考研数学多 Agent 智能学习系统</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/happydayday/math-exam-agent" target="_blank" rel="noopener">GitHub 仓库</a>
+          <a href="https://github.com/happydayday" target="_blank" rel="noopener">作者主页</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-mimo">
+        <p>MiMo Orbit 百万亿 Token 计划申请项目</p>
+        <p class="footer-copy">展示多 Agent 协作和长链推理能力的 AI 数学学习工具</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
